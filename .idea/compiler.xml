@@ -23,11 +23,15 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="learn-jersey" />
+        <module name="learn-shiro" />
+        <module name="learn-springsession" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="learn-jersey" target="1.5" />
       <module name="learn-project" target="1.5" />
+      <module name="learn-shiro" target="1.5" />
+      <module name="learn-springsession" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

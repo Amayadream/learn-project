@@ -10,7 +10,50 @@
     <packaging>war</packaging>
     <name>learn-jersey Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    <properties>
+        <jersey.version>2.22.2</jersey.version>
+    </properties>
     <dependencies>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+        <!-- Jersey Start -->
+        <!-- 公共 -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-common</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <!-- 服务端 -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <!-- 服务端 -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
+            <scope>system</scope>
+            <systemPath>D:/Code/apache-maven-3.3.3/system/jersey-container-servlet-2.22.2.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+            <version>${jersey.version}</version>
+            <scope>system</scope>
+            <systemPath>D:/Code/apache-maven-3.3.3/system/jersey-container-servlet-core-2.22.2.jar</systemPath>
+        </dependency>
+        <!-- Jersey Start -->
 
     </dependencies>
     <build>

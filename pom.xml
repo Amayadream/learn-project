@@ -9,6 +9,8 @@
   <url>http://maven.apache.org</url>
   <modules>
     <module>learn-jersey</module>
+    <module>learn-shiro</module>
+    <module>learn-springsession</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

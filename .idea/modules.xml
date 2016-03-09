@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/learn-jersey/learn-jersey.iml" filepath="$PROJECT_DIR$/learn-jersey/learn-jersey.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-project.iml" filepath="$PROJECT_DIR$/learn-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn-shiro/learn-shiro.iml" filepath="$PROJECT_DIR$/learn-shiro/learn-shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn-springsession/learn-springsession.iml" filepath="$PROJECT_DIR$/learn-springsession/learn-springsession.iml" />
     </modules>
   </component>
 </project>

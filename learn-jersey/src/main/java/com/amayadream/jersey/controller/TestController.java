@@ -12,14 +12,16 @@ import javax.ws.rs.core.MediaType;
  */
 @Path(value = "test")
 public class TestController {
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String sayHello() {
         return "Hello World!" ;
     }
 
+
     @GET
-    @Path("/{param}")
+    @Path("{param}")
     @Produces("text/plain;charset=UTF-8")
     public String sayHelloToUTF8(@PathParam("param") String username) {
         return "Hello " + username;

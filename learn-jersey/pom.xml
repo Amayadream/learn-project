@@ -43,20 +43,27 @@
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
             <version>${jersey.version}</version>
-            <scope>system</scope>
-            <systemPath>D:/Code/apache-maven-3.3.3/system/jersey-container-servlet-2.22.2.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet-core</artifactId>
             <version>${jersey.version}</version>
-            <scope>system</scope>
-            <systemPath>D:/Code/apache-maven-3.3.3/system/jersey-container-servlet-core-2.22.2.jar</systemPath>
         </dependency>
         <!-- Jersey Start -->
 
     </dependencies>
     <build>
         <finalName>learn-jersey</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
+
 </project>

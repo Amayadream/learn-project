@@ -7,6 +7,12 @@
     <title>index</title>
 </head>
 <body>
+<%
+    //将javabean对象绑定到Session中
+    session.setAttribute("bean","asdasd");
+    //从Session中删除javabean对象
+    session.removeAttribute("bean");
+%>
 <c:if test="${userid!=null}">
     Welcome, ${userid}
 </c:if>

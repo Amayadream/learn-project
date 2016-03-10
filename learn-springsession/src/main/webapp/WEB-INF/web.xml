@@ -20,6 +20,16 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  
+  <listener>
+    <description>Session Attribute监听器,可以监听session attribute的创建,修改以及删除</description>
+    <listener-class>com.amayadream.springsession.listener.SessionAttributeListener</listener-class>
+  </listener>
+
+  <listener>
+    <description>Session监听器,可以监听Session的创建以及销毁</description>
+    <listener-class>com.amayadream.springsession.listener.SessionListener</listener-class>
+  </listener>
 
   <!-- 编码过滤器 -->
   <filter>
@@ -54,14 +64,14 @@
   </servlet-mapping>
 
   <!-- Spring Session配置开始 -->
-  <filter>
-    <filter-name>springSessionRepositoryFilter</filter-name>
-    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>springSessionRepositoryFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+  <!--<filter>-->
+    <!--<filter-name>springSessionRepositoryFilter</filter-name>-->
+    <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+  <!--</filter>-->
+  <!--<filter-mapping>-->
+    <!--<filter-name>springSessionRepositoryFilter</filter-name>-->
+    <!--<url-pattern>/*</url-pattern>-->
+  <!--</filter-mapping>-->
   <!-- Spring Session配置结束 -->
 
   <error-page>
@@ -76,6 +86,10 @@
   <error-code>500</error-code>
   <location>/common/500.jsp</location>
   </error-page>
+
+  <session-config>
+    <session-timeout>10</session-timeout>
+  </session-config>
 
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>

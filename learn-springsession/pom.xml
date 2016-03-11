@@ -11,6 +11,20 @@
     <name>learn-springsession Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+
+        <!-- Quartz Start -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+        <!-- Quartz End -->
+
         <!-- Spring Session Start -->
         <dependency>
             <groupId>org.springframework.session</groupId>

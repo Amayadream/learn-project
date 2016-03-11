@@ -20,14 +20,9 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-  
-  <listener>
-    <description>Session Attribute监听器,可以监听session attribute的创建,修改以及删除</description>
-    <listener-class>com.amayadream.springsession.listener.SessionAttributeListener</listener-class>
-  </listener>
 
   <listener>
-    <description>Session监听器,可以监听Session的创建以及销毁</description>
+    <description>Session监听器,可以监听Session的创建销毁,attribute的创建修改删除</description>
     <listener-class>com.amayadream.springsession.listener.SessionListener</listener-class>
   </listener>
 

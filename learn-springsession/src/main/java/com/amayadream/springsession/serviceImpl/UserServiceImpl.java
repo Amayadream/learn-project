@@ -18,12 +18,10 @@ public class UserServiceImpl implements IUserService {
 
     @Resource private IUserDao userDao;
 
-    @Override
     public List<User> selectAll() {
         return userDao.selectAll();
     }
 
-    @Override
     public User selectByUserid(String userid) {
         return userDao.selectByUserid(userid);
     }

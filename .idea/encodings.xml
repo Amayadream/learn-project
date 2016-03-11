@@ -2,7 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/learn-activiti" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/learn-jersey" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/learn-openlayers3" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/learn-shiro" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/learn-springsession" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

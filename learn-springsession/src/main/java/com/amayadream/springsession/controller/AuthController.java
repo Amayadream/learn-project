@@ -34,10 +34,10 @@ public class AuthController {
             if (url != null && !url.equals("")) {
                 response.sendRedirect(url + "?_s=" + session.getId());
             } else {
-                response.sendRedirect("/learn_shiro/index");
+                response.sendRedirect("/springsession/index");
             }
         }else{
-            response.sendRedirect("/learn_shiro/auth/login?url=" + url);
+            response.sendRedirect("/springsession/auth/login?url=" + url);
         }
     }
 
@@ -70,15 +70,15 @@ public class AuthController {
                 String url = (String) session.getAttribute("url");
                 session.setAttribute("userid", user1.getUserid());
                 session.setAttribute("user", user1);
-                url = url == null || url.equals("") ? "/learn_shiro/index" : url;
+                url = url == null || url.equals("") ? "/springsession/index" : url;
                 response.sendRedirect(url);
             } else {
                 attributes.addFlashAttribute("error", "用户名或密码错误");
-                response.sendRedirect("/learn_shiro/auth/login");
+                response.sendRedirect("/springsession/auth/login");
             }
         } else{
             attributes.addFlashAttribute("error", "没有这个用户");
-            response.sendRedirect("/learn_shiro/auth/login");
+            response.sendRedirect("/springsession/auth/login");
         }
     }
 
@@ -95,7 +95,7 @@ public class AuthController {
         if (url != null && !url.equals("")) {
             response.sendRedirect(url);
         } else {
-            response.sendRedirect("/learn_shiro/auth/login");
+            response.sendRedirect("/springsession/auth/login");
         }
     }
 }

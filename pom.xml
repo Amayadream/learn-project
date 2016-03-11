@@ -11,6 +11,8 @@
     <module>learn-jersey</module>
     <module>learn-shiro</module>
     <module>learn-springsession</module>
+    <module>learn-activiti</module>
+    <module>learn-openlayers3</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

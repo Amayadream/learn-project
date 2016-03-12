@@ -30,12 +30,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="learn-activiti" target="1.5" />
-      <module name="learn-jersey" target="1.5" />
-      <module name="learn-openlayers3" target="1.5" />
-      <module name="learn-project" target="1.5" />
-      <module name="learn-shiro" target="1.5" />
-      <module name="learn-springsession" target="1.5" />
+      <module name="learn-activiti" target="1.8" />
+      <module name="learn-jersey" target="1.8" />
+      <module name="learn-project" target="1.8" />
+      <module name="learn-shiro" target="1.8" />
+      <module name="learn-springsession" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

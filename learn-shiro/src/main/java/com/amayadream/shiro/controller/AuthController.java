@@ -38,7 +38,6 @@ public class AuthController {
             attributes.addFlashAttribute("userid", user.getUserid());
             return "redirect:/index";
         }catch(Exception e){
-            e.printStackTrace();
             attributes.addFlashAttribute("message", "用户名或密码错误!");
             return "redirect:/login";
         }

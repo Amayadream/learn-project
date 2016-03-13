@@ -13,5 +13,8 @@
         <input type="password" id="password" name="password">
         <input type="submit" value="Submit">
     </form>
+    <c:if test="${message != null}">
+        <b><font color="red">${message}</font></b>
+    </c:if>
 </body>
 </html>

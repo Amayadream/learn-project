@@ -72,6 +72,9 @@ public class ResourceServiceImpl implements IResourceService {
             if (resource.getParent_id().equals("-1")) {
                 continue;
             }
+            if(!resource.getType().equals("menu")){
+                continue;
+            }
             if(!hasPermission(permissions, resource)) {
                 continue;
             }

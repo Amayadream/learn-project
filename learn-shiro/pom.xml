@@ -46,6 +46,11 @@
             <artifactId>shiro-cas</artifactId>
             <version>${shior.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-quartz</artifactId>
+            <version>${shior.version}</version>
+        </dependency>
         <!-- Apache Shiro End -->
     </dependencies>
     <build>

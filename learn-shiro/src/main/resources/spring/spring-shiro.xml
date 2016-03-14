@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
     <!-- 自定义Realm -->
-    <bean id="myRealm" class="com.amayadream.shiro.realm.LoginRealm"/>
+    <bean id="myRealm" class="com.amayadream.shiro.shiro.realm.LoginRealm"/>
 
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">

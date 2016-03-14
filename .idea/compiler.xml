@@ -29,7 +29,7 @@
         <module name="learn-springsession" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="learn-activiti" target="1.8" />
       <module name="learn-jersey" target="1.8" />
       <module name="learn-project" target="1.8" />

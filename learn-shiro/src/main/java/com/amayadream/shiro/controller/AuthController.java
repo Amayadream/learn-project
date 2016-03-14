@@ -44,8 +44,9 @@ public class AuthController {
     }
 
     @RequestMapping(value = "logout")
-    public String logout(){
-        return null;
+    public void logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
     }
 
     @RequestMapping(value = "index")

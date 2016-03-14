@@ -1,4 +1,4 @@
-package com.amayadream.shiro.realm;
+package com.amayadream.shiro.shiro.realm;
 
 import com.amayadream.shiro.pojo.User;
 import com.amayadream.shiro.service.IUserService;
@@ -14,6 +14,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import javax.annotation.Resource;
 
 /**
+ *
  * @author :  Amayadream
  * @date :  2016.03.12 16:00
  */

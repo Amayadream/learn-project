@@ -2,6 +2,7 @@ package com.amayadream.springsession.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -14,26 +15,15 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value = "test")
 public class TestController{
 
-    @RequestMapping(value = "get")
-    public ModelAndView get(HttpSession session){
-        String userid = (String)session.getAttribute("userid");
-        return new ModelAndView("index", "userid", userid);
-    }
-
     @RequestMapping(value = "set")
-    public ModelAndView set(HttpSession session){
+    public String set(HttpSession session){
         session.setAttribute("userid", "Amayadream");
-        return new ModelAndView("index", "message", "success to set session");
+        return "index";
     }
 
-    @RequestMapping(value = "create")
-    public void create(HttpSession session) {
-        session.setAttribute("listener", "123");
-    }
-
-    @RequestMapping(value = "destroy")
-    public void destroy(HttpSession session){
-        session.removeAttribute("listener");
-        session.invalidate();
+    @RequestMapping(value = "get")
+    @ResponseBody
+    public String get(HttpSession session){
+        return "Hello," + session.getAttribute("userid");
     }
 }

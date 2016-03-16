@@ -1,9 +1,12 @@
 package com.amayadream.jersey.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -13,12 +16,13 @@ import javax.ws.rs.core.MediaType;
 @Path(value = "test")
 public class TestController {
 
+    @Context HttpServletRequest request;
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String sayHello() {
         return "Hello World!" ;
     }
-
 
     @GET
     @Path("{param}")
@@ -26,4 +30,22 @@ public class TestController {
     public String sayHelloToUTF8(@PathParam("param") String username) {
         return "Hello " + username;
     }
+
+    @GET
+    @Path("set")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String set() {
+        HttpSession session = request.getSession();
+        session.setAttribute("userid", "Amayadream");
+        return "success to set session, name is Amayadream, value is " +  session.getAttribute("userid");
+    }
+
+    @GET
+    @Path("get")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String get() {
+        HttpSession session = request.getSession();
+        return "Hello, " + session.getAttribute("userid");
+    }
+
 }

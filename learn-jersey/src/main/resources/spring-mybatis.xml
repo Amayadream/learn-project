@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+                        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd  ">
+    <!-- 这里排除扫描Controller -->
+    <context:component-scan base-package="com.amayadream.jersey.*" >
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- Spring-Session 配置开始 -->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"/>
+
+    <!-- 替代默认使用cookie,这里使用的是httpheader -->
+    <bean id="httpSessonStrategy" class="org.springframework.session.web.http.HeaderHttpSessionStrategy"/>
+
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="127.0.0.1" />
+        <property name="port" value="6379" />
+        <property name="password" value="" />
+        <property name="timeout" value="3600" />
+        <property name="poolConfig" ref="jedisPoolConfig" />
+        <property name="usePool" value="true" />
+    </bean>
+
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactory" />
+    </bean>
+
+    <!-- 将session放入redis -->
+    <bean id="redisHttpSessionConfiguration" class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
+        <property name="maxInactiveIntervalInSeconds" value="1800" />
+        <property name="httpSessionStrategy" ref="httpSessonStrategy"/>
+    </bean>
+    <!-- Spring-Session 配置结束 -->
+</beans>

@@ -21,6 +21,8 @@ public class TestController{
         return "index";
     }
 
+
+
     @RequestMapping(value = "get")
     @ResponseBody
     public String get(HttpSession session){

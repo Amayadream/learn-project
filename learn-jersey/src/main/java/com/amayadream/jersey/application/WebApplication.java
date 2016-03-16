@@ -1,5 +1,6 @@
 package com.amayadream.jersey.application;
 
+import com.amayadream.jersey.controller.SessionController;
 import com.amayadream.jersey.controller.TestController;
 
 import javax.ws.rs.ApplicationPath;
@@ -28,6 +29,7 @@ public class WebApplication extends Application {
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> classes = new HashSet<Class<?>>();
         classes.add(TestController.class);
+        classes.add(SessionController.class);
         return classes;
     }
 

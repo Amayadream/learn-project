@@ -18,39 +18,65 @@ import javax.ws.rs.core.MediaType;
 @Path("session")
 public class SessionController {
 
-    /**
-     * 获取sessionId
-     * @param request
-     * @return
-     */
     @GET
+    @Path("getId")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getId(@Context HttpServletRequest request){
+    public String get(@Context HttpServletRequest request){
         HttpSession session = request.getSession();
-        session.setAttribute("userid", "Amayadream");
         return session.getId();
     }
 
-    /**
-     * 根据sessionid来获取session
-     * @param sessionId
-     * @return
-     */
     @GET
-    @Path("{sessionId}")
-    @Produces("text/plain;charset=UTF-8")
-    public String sayHelloToUTF8(@PathParam("sessionId") String sessionId) {
-        XdataSessionContext context = XdataSessionContext.getInstance();
-        HttpSession session = context.getSession(sessionId);
-        return (String)session.getAttribute("userid");
+    @Path("setValue/{value}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String setValue(@PathParam("value") String value, @Context HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.setAttribute("userid", value);
+        return "SessionId:" + session.getId() + ", Value:" + value;
     }
 
-    @Path("{sessionId}/destroy")
-    public void destroy(@PathParam("sessionId") String sessionId){
+    @GET
+    @Path("setValue/{sessionId}/{value}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String setValue(@PathParam("sessionId") String sessionId, @PathParam("value") String value) {
+        XdataSessionContext context = XdataSessionContext.getInstance();
+        HttpSession session = context.getSession(sessionId);
+        session.setAttribute("userid", value);
+        return "SessionId:" + session.getId() + ", Value:" + value;
+    }
+
+    @GET
+    @Path("getValue")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getValue(@Context HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        return "SessionId:" + session.getId() + ", Value:" + session.getAttribute("userid");
+    }
+
+    @GET
+    @Path("getValue/{sessionId}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getValue(@PathParam("sessionId") String sessionId){
+        XdataSessionContext context = XdataSessionContext.getInstance();
+        HttpSession session = context.getSession(sessionId);
+        return "SessionId:" + session.getId() + ", Value:" + session.getAttribute("userid");
+    }
+
+    @GET
+    @Path("destroy")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String destroy(@Context HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "session is destroy!";
+    }
+
+    @Path("destroy/{sessionId}")
+    public String destroy(@PathParam("sessionId") String sessionId){
         XdataSessionContext context = XdataSessionContext.getInstance();
         HttpSession session = context.getSession(sessionId);
         session.invalidate();
+        return "session is destroy!";
     }
-
 
 }

@@ -8,8 +8,13 @@
   <!-- Spring和mybatis的配置文件 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring/spring-mybatis.xml;classpath:shiro/spring-config-shiro.xml</param-value>
+    <param-value>classpath:spring/spring-mybatis.xml</param-value>
   </context-param>
+
+  <!-- 可以使用RequestContextHolder.currentRequestAttributes() 获取到请求的attr -->
+  <listener>
+    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  </listener>
 
   <!-- Spring监听器 -->
   <listener>
@@ -56,6 +61,7 @@
   <filter>
     <filter-name>shiroFilter</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <async-supported>true</async-supported>
     <init-param>
       <!-- 该值缺省为false,表示生命周期由SpringApplicationContext管理,设置为true则表示由ServletContainer管理 -->
       <param-name>targetFilterLifecycle</param-name>
@@ -65,6 +71,7 @@
   <filter-mapping>
     <filter-name>shiroFilter</filter-name>
     <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
 
   <error-page>
@@ -81,7 +88,7 @@
   </error-page>
 
   <welcome-file-list>
-    <welcome-file>/login</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
 
 </web-app>

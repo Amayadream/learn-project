@@ -22,13 +22,9 @@
     </bean>
 
     <!-- Realm实现 -->
-    <bean id="userRealm" class="com.amayadream.shiro.shiro.realm.LoginRealm">
+    <bean id="userRealm" class="com.amayadream.shiro.shiro.realm.UserRealm">
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
         <property name="cachingEnabled" value="false"/>
-        <!--<property name="authenticationCachingEnabled" value="true"/>-->
-        <!--<property name="authenticationCacheName" value="authenticationCache"/>-->
-        <!--<property name="authorizationCachingEnabled" value="true"/>-->
-        <!--<property name="authorizationCacheName" value="authorizationCache"/>-->
     </bean>
 
     <!-- 会话ID生成器 -->
@@ -94,13 +90,13 @@
 
     <!-- 基于Form表单的身份验证过滤器 -->
     <bean id="formAuthenticationFilter" class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter">
-        <property name="usernameParam" value="username"/>
+        <property name="usernameParam" value="userid"/>
         <property name="passwordParam" value="password"/>
         <property name="rememberMeParam" value="rememberMe"/>
         <property name="loginUrl" value="/login"/>
     </bean>
 
-    <!--<bean id="sysUserFilter" class="com.github.zhangkaitao.shiro.chapter16.web.shiro.filter.SysUserFilter"/>-->
+    <bean id="sysUserFilter" class="com.amayadream.shiro.shiro.filter.SysUserFilter"/>
 
     <!-- Shiro的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">

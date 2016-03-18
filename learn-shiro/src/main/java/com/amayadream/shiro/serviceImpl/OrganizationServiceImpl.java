@@ -1,9 +1,11 @@
 package com.amayadream.shiro.serviceImpl;
 
+import com.amayadream.shiro.dao.IOrganizationDao;
 import com.amayadream.shiro.pojo.Organization;
 import com.amayadream.shiro.service.IOrganizationService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -12,43 +14,46 @@ import java.util.List;
  */
 @Service(value = "organizationService")
 public class OrganizationServiceImpl implements IOrganizationService {
+
+    @Resource private IOrganizationDao organizationDao;
+
     @Override
     public List<Organization> selectAll() {
-        return null;
+        return organizationDao.selectAll();
     }
 
     @Override
-    public Organization selectById() {
-        return null;
+    public Organization selectById(String id) {
+        return organizationDao.selectById(id);
     }
 
     @Override
     public List<Organization> selectByPid(String parentId) {
-        return null;
+        return organizationDao.selectByPid(parentId);
     }
 
     @Override
     public boolean insert(Organization organization) {
-        return false;
+        return organizationDao.insert(organization);
     }
 
     @Override
     public boolean update(Organization organization) {
-        return false;
+        return organizationDao.update(organization);
     }
 
     @Override
     public boolean delete(String id) {
-        return false;
+        return organizationDao.delete(id);
     }
 
-    @Override
-    public Object findAllWithExclude(Organization organization) {
-        return null;
-    }
-
-    @Override
-    public void move(Organization source, Organization target) {
-
-    }
+//    @Override
+//    public Object findAllWithExclude(Organization organization) {
+//        return organizationDao.findAllWithExclude(organization);
+//    }
+//
+//    @Override
+//    public void move(String sourceId, String targetId, String targetParentIds) {
+//        organizationDao.move(sourceId, targetId, targetParentIds);
+//    }
 }

@@ -10,12 +10,12 @@ import java.util.List;
  */
 public interface IOrganizationService {
     List<Organization> selectAll();
-    Organization selectById();
+    Organization selectById(String id);
     List<Organization> selectByPid(String parentId);
     boolean insert(Organization organization);
     boolean update(Organization organization);
     boolean delete(String id);
 
-    Object findAllWithExclude(Organization organization);
-    void move(Organization source, Organization target);
+//    Object findAllWithExclude(Organization organization);
+//    void move(String sourceId, String targetId, String targetParentIds);
 }

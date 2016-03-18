@@ -10,6 +10,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 /**
  * @author :  Amayadream
@@ -21,9 +23,9 @@ public class SessionController {
     @GET
     @Path("getId")
     @Produces(MediaType.TEXT_PLAIN)
-    public String get(@Context HttpServletRequest request){
+    public String get(@Context HttpServletRequest request) throws UnknownHostException {
         HttpSession session = request.getSession();
-        return session.getId();
+        return "SessionId:" + session.getId() + ",Host: " + InetAddress.getLocalHost().toString();
     }
 
     @GET

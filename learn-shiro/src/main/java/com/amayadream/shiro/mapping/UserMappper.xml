@@ -27,6 +27,10 @@
         WHERE RN BETWEEN #{start} and #{end}
     </select>
 
+    <select id="selectAllNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/> FROM USERS
+    </select>
+
     <select id="selectByUserid" resultMap="BaseResultMap" parameterType="string">
         SELECT
         <include refid="Base_Column_List"/>

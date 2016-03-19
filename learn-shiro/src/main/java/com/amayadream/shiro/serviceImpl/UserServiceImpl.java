@@ -31,6 +31,11 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    public List<User> selectAllNoPage() {
+        return userDao.selectAllNoPage();
+    }
+
+    @Override
     public User selectByUserid(String userid) {
         return userDao.selectByUserid(userid);
     }

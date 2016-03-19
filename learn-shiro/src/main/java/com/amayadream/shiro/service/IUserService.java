@@ -12,6 +12,7 @@ import java.util.Set;
  */
 public interface IUserService {
     List<User> selectAll(int page, int pageSize);
+    List<User> selectAllNoPage();
     User selectByUserid(String userid);
     int count(int pageSize);
     boolean insert(User user);

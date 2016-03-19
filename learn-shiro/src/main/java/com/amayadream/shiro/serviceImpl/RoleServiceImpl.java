@@ -75,7 +75,12 @@ public class RoleServiceImpl implements IRoleService {
         for (String roleId : roleIds) {
             Role role = selectByRoleId(roleId);
             if (role != null) {
-                resourceIds.add(role.getResource_ids());
+                String[] resource_ids = role.getResource_ids().split(",");
+                if (resource_ids != null) {
+                    for (String resource_id : resource_ids) {
+                        resourceIds.add(resource_id);
+                    }
+                }
             }
         }
         return resourceService.findPermissions(resourceIds);

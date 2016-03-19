@@ -14,6 +14,7 @@ import java.util.List;
 @Service(value = "userDao")
 public interface IUserDao {
     List<User> selectAll(@Param("start") int start, @Param("end") int end);
+    List<User> selectAllNoPage();
     User selectByUserid(String userid);
     User count();
     boolean insert(User user);

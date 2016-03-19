@@ -27,12 +27,23 @@ public class UserController {
     @Resource private IOrganizationService organizationService;
 
     /**
-     * 用户列表
-     * @param page
+     * 无分页获取用户列表
      * @return
      */
     @RequiresPermissions("user:view")
     @RequestMapping(value = "", method = RequestMethod.GET)
+    public ModelAndView list(){
+        ModelAndView view = new ModelAndView("apps/user");
+        return view;
+    }
+
+    /**
+     * 分页用户列表
+     * @param page
+     * @return
+     */
+    @RequiresPermissions("user:view")
+    @RequestMapping(value = "page", method = RequestMethod.GET)
     public ModelAndView list(@RequestParam(value = "page", defaultValue = "1") int page){
         ModelAndView view = new ModelAndView("apps/user");
         List<User> list = userService.selectAll(page, 5);

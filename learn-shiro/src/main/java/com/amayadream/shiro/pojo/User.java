@@ -17,6 +17,10 @@ public class User implements Serializable {
     private String salt;            //盐
     private int locked;          //锁定
 
+    public String getCredentialsSalt() {
+        return userid + salt;
+    }
+
     public String getUserid() {
         return userid;
     }

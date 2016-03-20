@@ -57,10 +57,10 @@
             <if test="password != null and password != ''">
                 PASSWORD = #{password, jdbcType=VARCHAR},
             </if>
-            <if test="organization_id != null and organization_id != ''">
+            <if test="organization_id != null">
                 ORGANIZATION_ID = #{organization_id, jdbcType=VARCHAR},
             </if>
-            <if test="role_ids != null and role_ids != ''">
+            <if test="role_ids != null">
                 ROLE_IDS = #{role_ids, jdbcType=INTEGER},
             </if>
             <if test="salt != null and salt != ''">

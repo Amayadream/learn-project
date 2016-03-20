@@ -99,7 +99,7 @@ public class UserController {
      * @return
      */
     @RequiresPermissions("user:delete")
-    @RequestMapping(value = "{userid}/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "{userid}/delete")
     public String delete(@PathVariable String userid, RedirectAttributes attributes){
         String message = userService.delete(userid) ? "["+userid+"]删除成功" : "["+userid+"]删除失败";
         attributes.addFlashAttribute("message", message);

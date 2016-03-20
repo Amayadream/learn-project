@@ -255,32 +255,53 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Modal title</h4>
+                            <h4 class="modal-title"><span class="glyphicon glyphicon-edit"></span> 编辑</h4>
                         </div>
+                        <form class="form-horizontal" id="edit-form" action="" method="post">
                         <div class="modal-body">
-                            <p>One fine body&hellip;</p>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="userid" class="col-sm-2 control-label">用户名</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="userid" name="userid" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="organization" class="col-sm-2 control-label">组织</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="organization" name="organization_id" placeholder="组织机构...">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="role" class="col-sm-2 control-label">角色</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="role" name="role_ids" placeholder="角色...">
+                                    </div>
+                                </div>
+                            </div><!-- /.box-body -->
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="submit" class="btn bg-olive">保存</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                         </div>
+                        </form>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
 
-            <div class="modal fade" id="del-modal">
-                <div class="modal-dialog">
+            <div class="modal fade " id="del-modal">
+                <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Modal title</h4>
+                            <h4 class="modal-title"><span class="glyphicon glyphicon-warning-sign"></span> 警告</h4>
                         </div>
                         <div class="modal-body">
-                            <p>One fine body&hellip;</p>
+                            确定删除这个用户吗?
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <a href="#" class="btn btn-danger" id="del-button">确认</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
@@ -374,8 +395,8 @@
             },
             columns : [
                 { data: 'userid' },
-                { data: 'organization_id' },
-                { data: 'role_ids' },
+                { data: function(e){if(e.organization_id == null){return "暂无组织";}else{return e.organization_id;}}},
+                { data: function(e){if(e.role_ids == null){return "暂无角色";}else{return e.role_ids;}} },
                 { data: function(e){return e.locked == 0 ? "正常":"锁定";}},
                 { data : function(e){return "<button class=\"btn bg-olive btn-sm\" onclick=\"edit('"+ e.userid+"')\">编辑</button> <button class=\"btn btn-danger btn-sm\" onclick=\"del('"+ e.userid+"')\">删除</button>"}}
             ],
@@ -404,13 +425,35 @@
                 }
             }
         });
+
+        $('#edit-modal').on('hidden.bs.modal', function (e) {
+            $("#del-button").attr("onclick", "");
+            $("#userid").val("");
+            $("#organization").val("");
+            $("#role").val("");
+        });
     });
 
+    /**
+     * 删除用户
+     * @param userid
+     */
     function del(userid){
+        $("#del-button").attr("href", "${ctx}/user/"+ userid+"/delete");
         $('#del-modal').modal({})
     }
 
+    /**
+     * 修改用户
+     * @param userid
+     */
     function edit(userid){
+        $.getJSON("${ctx}/api/user/"+userid, function(data){
+            $("#userid").val(data.userid);
+            $("#organization").val(data.organization_id);
+            $("#role").val(data.role_ids);
+            $("#edit-form").attr("action", "${ctx}/user/"+userid+"/update")
+        });
         $('#edit-modal').modal({})
     }
 

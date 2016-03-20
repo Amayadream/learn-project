@@ -5,6 +5,7 @@ import com.amayadream.shiro.pojo.User;
 import com.amayadream.shiro.service.IUserService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,4 +38,12 @@ public class ApiController {
         map.put("data", list);
         return JSON.toJSONString(map);
     }
+
+    @RequiresPermissions("user:view")
+    @RequestMapping(value = "user/{userid}", method = RequestMethod.GET)
+    @ResponseBody
+    public String select(@PathVariable String userid){
+        return JSON.toJSONString(userService.selectByUserid(userid));
+    }
+
 }

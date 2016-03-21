@@ -4,18 +4,10 @@
 <html>
 <head lang="en">
     <title>用户管理</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="${ctx}/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="${ctx}/plugins/ionicons/css/ionicons.min.css">
+    <jsp:include page="include/commonfile.jsp"/>
     <link rel="stylesheet" type="text/css" href="${ctx}/plugins/adminLTE/plugins/datatables/dataTables.bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="${ctx}/plugins/adminLTE/css/AdminLTE.min.css">
-    <link rel="stylesheet" type="text/css" href="${ctx}/plugins/adminLTE/css/skins/skin-blue.min.css">
-    <script src="${ctx}/plugins/jquery/jquery-2.1.4.min.js"></script>
-    <script src="${ctx}/plugins/bootstrap/js/bootstrap.js"></script>
     <script src="${ctx}/plugins/adminLTE/plugins/datatables/jquery.dataTables.js"></script>
     <script src="${ctx}/plugins/adminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
-    <script src="${ctx}/plugins/adminLTE/js/app.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -232,12 +224,17 @@
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">用户列表</h3>
+                            <div style="float:right">
+                                <button class="btn bg-olive btn-sm">添加用户</button>
+                            </div>
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
                                     <th>用户名</th>
+                                    <th>真实姓名</th>
+                                    <th>邮箱</th>
                                     <th>组织机构</th>
                                     <th>所属角色</th>
                                     <th>状态</th>
@@ -395,8 +392,10 @@
             },
             columns : [
                 { data: 'userid' },
-                { data: function(e){if(e.organization_id == null){return "暂无组织";}else{return e.organization_id;}}},
-                { data: function(e){if(e.role_ids == null){return "暂无角色";}else{return e.role_ids;}} },
+                { data: function(e){if(e.realname == null){return "";}else{return e.realname;}}},
+                { data: function(e){if(e.email == null){return "";}else{return e.email;}}},
+                { data: function(e){if(e.organization_id == null){return "";}else{return e.organization_id;}}},
+                { data: function(e){if(e.role_ids == null){return "";}else{return e.role_ids;}} },
                 { data: function(e){return e.locked == 0 ? "正常":"锁定";}},
                 { data : function(e){return "<button class=\"btn bg-olive btn-sm\" onclick=\"edit('"+ e.userid+"')\">编辑</button> <button class=\"btn btn-danger btn-sm\" onclick=\"del('"+ e.userid+"')\">删除</button>"}}
             ],
@@ -426,12 +425,26 @@
             }
         });
 
+        //清空modal
         $('#edit-modal').on('hidden.bs.modal', function (e) {
             $("#del-button").attr("onclick", "");
             $("#userid").val("");
             $("#organization").val("");
             $("#role").val("");
         });
+
+        //展示信息
+        if("${message}"){
+            layer.msg('${message}', {
+                offset: 0
+            });
+        }
+        if("${error}"){
+            layer.msg('${error}', {
+                offset: 0,
+                shift: 6
+            });
+        }
     });
 
     /**

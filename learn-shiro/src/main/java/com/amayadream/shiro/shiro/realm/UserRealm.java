@@ -12,6 +12,7 @@ import org.apache.shiro.util.ByteSource;
 import javax.annotation.Resource;
 
 /**
+ * 自定义Realm,负责验证登录以及权限验证
  * <p>User: Zhang Kaitao
  * <p>Date: 14-1-28
  * <p>Version: 1.0

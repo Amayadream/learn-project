@@ -59,30 +59,38 @@ public class RoleServiceImpl implements IRoleService {
 
     @Override
     public Set<String> findRoles(String[] roleIds) {
-        Set<String> roles = new HashSet<String>();
-        for (String roleId : roleIds) {
-            Role role = selectByRoleId(roleId);
-            if (role != null) {
-                roles.add(role.getRoleName());
+        if (roleIds != null) {
+            Set<String> roles = new HashSet<String>();
+            for (String roleId : roleIds) {
+                Role role = selectByRoleId(roleId);
+                if (role != null) {
+                    roles.add(role.getRoleName());
+                }
             }
+            return roles;
+        } else {
+            return null;
         }
-        return roles;
     }
 
     @Override
     public Set<String> findPermissions(String[] roleIds) {
-        Set<String> resourceIds = new HashSet<String>();
-        for (String roleId : roleIds) {
-            Role role = selectByRoleId(roleId);
-            if (role != null) {
-                String[] resource_ids = role.getResource_ids().split(",");
-                if (resource_ids != null) {
-                    for (String resource_id : resource_ids) {
-                        resourceIds.add(resource_id);
+        if (roleIds != null) {
+            Set<String> resourceIds = new HashSet<String>();
+            for (String roleId : roleIds) {
+                Role role = selectByRoleId(roleId);
+                if (role != null) {
+                    String[] resource_ids = role.getResource_ids().split(",");
+                    if (resource_ids != null) {
+                        for (String resource_id : resource_ids) {
+                            resourceIds.add(resource_id);
+                        }
                     }
                 }
             }
+            return resourceService.findPermissions(resourceIds);
+        } else {
+            return null;
         }
-        return resourceService.findPermissions(resourceIds);
     }
 }

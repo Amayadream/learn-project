@@ -63,19 +63,27 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public Set<String> findRoles(String userid) {
-        User user = userDao.selectByUserid(userid);
-        if (user == null) {
-            return Collections.EMPTY_SET;
+        try {
+            User user = userDao.selectByUserid(userid);
+            if (user == null) {
+                return Collections.EMPTY_SET;
+            }
+            return roleService.findRoles(user.getRole_ids().split(","));
+        } catch (Exception e) {
+            return null;
         }
-        return roleService.findRoles(user.getRole_ids().split(","));
     }
 
     @Override
     public Set<String> findPermission(String userid) {
-        User user = userDao.selectByUserid(userid);
-        if (user == null) {
-            return Collections.EMPTY_SET;
+        try {
+            User user = userDao.selectByUserid(userid);
+            if (user == null) {
+                return Collections.EMPTY_SET;
+            }
+            return roleService.findPermissions(user.getRole_ids().split(","));
+        } catch (Exception e) {
+            return null;
         }
-        return roleService.findPermissions(user.getRole_ids().split(","));
     }
 }

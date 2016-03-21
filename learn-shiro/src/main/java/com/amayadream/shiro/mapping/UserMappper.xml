@@ -4,7 +4,6 @@
     <resultMap id="BaseResultMap" type="com.amayadream.shiro.pojo.User">
         <id column="USERID" property="userid" jdbcType="VARCHAR"/>
         <result column="PASSWORD" property="password" jdbcType="VARCHAR"/>
-        <result column="REALNAME" property="realname" jdbcType="VARCHAR"/>
         <result column="EMAIL" property="email" jdbcType="VARCHAR"/>
         <result column="ORGANIZATION_ID" property="organization_id" jdbcType="VARCHAR"/>
         <result column="ROLE_IDS" property="role_ids" jdbcType="VARCHAR"/>
@@ -13,7 +12,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        USERID, PASSWORD, REALNAME, EMAIL, ORGANIZATION_ID, ROLE_IDS, SALT, LOCKED
+        USERID, PASSWORD, EMAIL, ORGANIZATION_ID, ROLE_IDS, SALT, LOCKED
     </sql>
 
     <select id="selectAll" resultMap="BaseResultMap">
@@ -46,8 +45,8 @@
 
     <!-- 插入用户 -->
     <insert id="insert" parameterType="com.amayadream.shiro.pojo.User">
-        INSERT INTO USERS (USERID, PASSWORD, REALNAME, EMAIL, ORGANIZATION_ID, ROLE_IDS, SALT, LOCKED)
-        VALUES (#{userid, jdbcType=VARCHAR}, #{password, jdbcType=VARCHAR}, #{realname, jdbcType=VARCHAR}, #{email, jdbcType=VARCHAR},
+        INSERT INTO USERS (USERID, PASSWORD, EMAIL, ORGANIZATION_ID, ROLE_IDS, SALT, LOCKED)
+        VALUES (#{userid, jdbcType=VARCHAR}, #{password, jdbcType=VARCHAR}, #{email, jdbcType=VARCHAR},
         #{organization_id, jdbcType=VARCHAR}, #{role_ids, jdbcType=INTEGER},
         #{salt, jdbcType=INTEGER}, #{locked, jdbcType=INTEGER})
     </insert>
@@ -58,9 +57,6 @@
         <set>
             <if test="password != null and password != ''">
                 PASSWORD = #{password, jdbcType=VARCHAR},
-            </if>
-            <if test="realname != null and realname != ''">
-                REALNAME = #{realname, jdbcType=VARCHAR},
             </if>
             <if test="email != null and email != ''">
                 EMAIL = #{email, jdbcType=VARCHAR},

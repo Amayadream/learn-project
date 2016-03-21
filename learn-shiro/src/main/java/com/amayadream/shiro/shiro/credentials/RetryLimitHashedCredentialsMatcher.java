@@ -10,7 +10,6 @@ import org.apache.shiro.cache.CacheManager;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- *
  * @author :  Amayadream
  * @date :  2016.03.12 16:00
  */

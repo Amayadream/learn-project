@@ -12,7 +12,6 @@ import java.io.Serializable;
 public class User implements Serializable {
     private String userid;          //用户名
     private String password;        //密码
-    private String realname;        //真实姓名
     private String email;           //邮箱
     private String organization_id; //所属组织
     private String role_ids;        //所属角色
@@ -37,14 +36,6 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getRealname() {
-        return realname;
-    }
-
-    public void setRealname(String realname) {
-        this.realname = realname;
     }
 
     public String getEmail() {

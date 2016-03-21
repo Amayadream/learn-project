@@ -225,7 +225,7 @@
                         <div class="box-header">
                             <h3 class="box-title">用户列表</h3>
                             <div style="float:right">
-                                <button class="btn bg-olive btn-sm">添加用户</button>
+                                <button class="btn bg-olive btn-sm" onclick="add();">添加用户</button>
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body">
@@ -233,7 +233,6 @@
                                 <thead>
                                 <tr>
                                     <th>用户名</th>
-                                    <th>真实姓名</th>
                                     <th>邮箱</th>
                                     <th>组织机构</th>
                                     <th>所属角色</th>
@@ -281,6 +280,45 @@
                                 <button type="submit" class="btn bg-olive">保存</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                         </div>
+                        </form>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <div class="modal fade" id="add-modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title"><span class="glyphicon glyphicon-edit"></span> 编辑</h4>
+                        </div>
+                        <form class="form-horizontal" id="add-form" action="" method="post">
+                            <div class="modal-body">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="userid" class="col-sm-2 control-label">用户名</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="add-userid" name="userid" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="organization" class="col-sm-2 control-label">组织</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="add-organization" name="organization_id" placeholder="组织机构...">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="role" class="col-sm-2 control-label">角色</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="add-role" name="role_ids" placeholder="角色...">
+                                        </div>
+                                    </div>
+                                </div><!-- /.box-body -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn bg-olive">保存</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
                         </form>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
@@ -392,7 +430,6 @@
             },
             columns : [
                 { data: 'userid' },
-                { data: function(e){if(e.realname == null){return "";}else{return e.realname;}}},
                 { data: function(e){if(e.email == null){return "";}else{return e.email;}}},
                 { data: function(e){if(e.organization_id == null){return "";}else{return e.organization_id;}}},
                 { data: function(e){if(e.role_ids == null){return "";}else{return e.role_ids;}} },
@@ -468,6 +505,10 @@
             $("#edit-form").attr("action", "${ctx}/user/"+userid+"/update")
         });
         $('#edit-modal').modal({})
+    }
+
+    function add(){
+        $('#add-modal').modal({})
     }
 
 </script>

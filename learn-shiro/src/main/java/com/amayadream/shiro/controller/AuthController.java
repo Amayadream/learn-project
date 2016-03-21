@@ -24,6 +24,21 @@ public class AuthController {
 
     @Resource IUserService userService;
 
+    /**
+     * 跳转到首页
+     * @return
+     */
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public String index(){
+        return "forward:/user";
+    }
+
+    /**
+     * 用户登录
+     * @param req
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/login")
     public String login(HttpServletRequest req, Model model) {
         String exceptionClassName = (String)req.getAttribute("shiroLoginFailure");
@@ -37,12 +52,6 @@ public class AuthController {
         }
         model.addAttribute("error", error);
         return "apps/login";
-    }
-
-    @RequestMapping(value = "logout")
-    public void logout(){
-        Subject subject = SecurityUtils.getSubject();
-        subject.logout();
     }
 
     /**
@@ -60,8 +69,29 @@ public class AuthController {
      * @return
      */
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    public String register(User user){
+    public String register(User user, String retype, Model model){
+        if (user.getPassword().equals(retype)) {
+            User user1 = userService.selectByUserid(user.getUserid());
+            if (user1 == null) {
+                boolean flag = userService.insert(user);
+                if (flag) {
+                    model.addAttribute("message", "[" + user.getUserid() + "]注册成功");
+                } else {
+                    model.addAttribute("error", "注册失败,请重试!");
+                }
+            } else {
+                model.addAttribute("error", "[" + user.getUserid() + "]用户已存在!");
+            }
+        } else {
+            model.addAttribute("error", "两次密码不一致");
+        }
         return "apps/register";
+    }
+
+    @RequestMapping(value = "logout")
+    public void logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
     }
 
 }

@@ -16,28 +16,28 @@
 
     <div class="register-box-body">
         <p class="login-box-msg">Register a new membership</p>
-        <form action="" method="post">
+        <form action="${ctx}/register" method="post" onsubmit="return validateRegister();">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Full name">
+                <input type="text" class="form-control" name="userid" id="userid" placeholder="Username" required>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Retype password">
+                <input type="password" class="form-control" name="retype" id="retype" placeholder="Retype password" required>
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
             </div>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms</a>
+                            <input type="checkbox" id="terms"> I agree to the <a href="#">terms</a>
                         </label>
                     </div>
                 </div><!-- /.col -->
@@ -46,12 +46,6 @@
                 </div><!-- /.col -->
             </div>
         </form>
-
-        <div class="social-auth-links text-center">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
-        </div>
 
         <a href="${ctx}/login" class="text-center">I already have a membership</a>
     </div><!-- /.form-box -->
@@ -63,7 +57,32 @@
             radioClass: 'iradio_square-blue',
             increaseArea: '20%' // optional
         });
+
+        //展示信息
+        if("${message}"){
+            layer.msg('${message}', {
+                offset: 0
+            });
+        }
+        if("${error}"){
+            layer.msg('${error}', {
+                offset: 0,
+                shift: 6
+            });
+        }
     });
+
+    function validateRegister(){
+        if(!($("#password").val() == $("#retype").val())){
+            layer.msg("两次输入的密码不一致!", {offset: 0, shift: 6});
+            return false;
+        }else if (!$("#terms").is(':checked')) {
+            layer.msg("必须同意协议才能注册!", {offset: 0, shift: 6});
+            return false;
+        } else{
+            return true;
+        }
+    }
 </script>
 </body>
 </html>

@@ -1,10 +1,14 @@
 package com.amayadream.shiro.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.amayadream.shiro.pojo.Role;
 import com.amayadream.shiro.pojo.User;
 import com.amayadream.shiro.service.IOrganizationService;
 import com.amayadream.shiro.service.IRoleService;
 import com.amayadream.shiro.service.IUserService;
+import com.amayadream.shiro.serviceImpl.UserServiceImpl;
+import com.amayadream.shiro.utils.SelectEntity;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +38,17 @@ public class UserController {
     @RequiresPermissions("user:view")
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView list(){
-        ModelAndView view = new ModelAndView("apps/user");
+        ModelAndView view = new ModelAndView("apps/user/user");
+        List<Role> roles = roleService.selectRoles();
+        if (roles == null)   return null;
+        List<SelectEntity> list = new ArrayList<>();
+        for (Role role : roles) {
+            SelectEntity entity = new SelectEntity();
+            entity.setId(role.getId());
+            entity.setText(role.getRoleName());
+            list.add(entity);
+        }
+        view.addObject("roles", list);
         return view;
     }
 
@@ -45,11 +60,17 @@ public class UserController {
     @RequiresPermissions("user:view")
     @RequestMapping(value = "page", method = RequestMethod.GET)
     public ModelAndView list(@RequestParam(value = "page", defaultValue = "1") int page){
-        ModelAndView view = new ModelAndView("apps/user");
+        ModelAndView view = new ModelAndView("apps/user/user");
         List<User> list = userService.selectAll(page, 5);
         view.addObject("list", list);
         //待加上角色和组织列表
         return view;
+    }
+
+    @RequiresPermissions("user:create")
+    @RequestMapping(value = "create", method = RequestMethod.GET)
+    public String create(){
+        return "apps/user/create";
     }
 
     /**

@@ -12,6 +12,7 @@ import java.util.Set;
 public interface IRoleService {
     List<Role> selectAll(int page, int pageSize);
     Role selectByRoleId(String id);
+    List<Role> selectRoles();
     Role count(int pageSize);
     boolean insert(Role role);
     boolean update(Role role);

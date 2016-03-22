@@ -38,6 +38,11 @@ public class RoleServiceImpl implements IRoleService {
     }
 
     @Override
+    public List<Role> selectRoles() {
+        return roleDao.selectRoles();
+    }
+
+    @Override
     public Role count(int pageSize) {
         return roleDao.count();
     }

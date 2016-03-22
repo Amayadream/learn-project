@@ -33,6 +33,12 @@
         WHERE ID = #{id, jdbcType=VARCHAR}
     </select>
 
+    <select id="selectRoles" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ROLES
+    </select>
+
     <select id="count" resultType="com.amayadream.shiro.pojo.Role">
         SELECT COUNT(*) ID FROM ROLES;
     </select>

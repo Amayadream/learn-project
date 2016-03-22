@@ -111,6 +111,9 @@
         <property name="filterChainDefinitions">
             <value>
                 /login = authc
+                /plugins/** = anon
+                /static/** = anon
+                /common/** = anon
                 /logout = logout
                 /authenticated = authc
                 /** = user,sysUser

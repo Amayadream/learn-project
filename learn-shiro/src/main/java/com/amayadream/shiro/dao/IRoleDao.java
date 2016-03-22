@@ -14,6 +14,7 @@ import java.util.List;
 public interface IRoleDao {
     List<Role> selectAll(@Param("start") int start, @Param("end") int end);
     Role selectByRoleId(String id);
+    List<Role> selectRoles();
     Role count();
     boolean insert(Role role);
     boolean update(Role role);

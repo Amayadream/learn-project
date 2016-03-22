@@ -18,11 +18,11 @@
         <p class="login-box-msg">Sign in to start your session</p>
         <form action="" method="post">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" name="userid" placeholder="Please input you userid..." value="<shiro:principal/>" required>
+                <input type="text" class="form-control" name="userid" placeholder="Username" value="<shiro:principal/>" required>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" name="password" placeholder="Please input you password..." required>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">

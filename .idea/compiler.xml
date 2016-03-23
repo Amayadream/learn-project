@@ -22,43 +22,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="learn-openlayers3" />
-      </profile>
-      <profile default="false" name="Annotation profile for learn-shiro" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="learn-shiro" />
-      </profile>
-      <profile default="false" name="Annotation profile for learn-activiti" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="learn-activiti" />
-      </profile>
-      <profile default="false" name="Annotation profile for learn-jersey" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="learn-jersey" />
-      </profile>
-      <profile default="false" name="Annotation profile for learn-springsession" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
+        <module name="learn-openlayers3" />
+        <module name="learn-shiro" />
+        <module name="learn-spring" />
         <module name="learn-springsession" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="learn-activiti" target="1.8" />
-      <module name="learn-jersey" target="1.8" />
+      <module name="learn-activiti" target="1.5" />
+      <module name="learn-jersey" target="1.5" />
       <module name="learn-project" target="1.8" />
-      <module name="learn-shiro" target="1.8" />
-      <module name="learn-springsession" target="1.8" />
+      <module name="learn-shiro" target="1.5" />
+      <module name="learn-spring" target="1.8" />
+      <module name="learn-springsession" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

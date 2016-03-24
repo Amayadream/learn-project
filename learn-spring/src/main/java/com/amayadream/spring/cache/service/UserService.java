@@ -1,6 +1,6 @@
-package com.amayadream.spring.ch1.service;
+package com.amayadream.spring.cache.service;
 
-import com.amayadream.spring.ch1.bean.User;
+import com.amayadream.spring.cache.bean.User;
 import org.springframework.cache.annotation.Cacheable;
 
 import java.util.HashMap;

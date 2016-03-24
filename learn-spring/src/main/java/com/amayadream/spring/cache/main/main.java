@@ -1,7 +1,7 @@
-package com.amayadream.spring.ch1.main;
+package com.amayadream.spring.cache.main;
 
-import com.amayadream.spring.ch1.bean.User;
-import com.amayadream.spring.ch1.service.UserService;
+import com.amayadream.spring.cache.bean.User;
+import com.amayadream.spring.cache.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,8 +15,7 @@ public class main {
 
     @Test
     public void asd(){
-        System.out.println(System.getProperty("user.dir"));
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:com/amayadream/spring/ch1/xml/spring.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:com/amayadream/spring/cache/xml/spring.xml");
         UserService userService = context.getBean(UserService.class);
         User userFetch1 = userService.getUser(1);
         System.out.println(userFetch1);

@@ -1,4 +1,4 @@
-package com.amayadream.spring.ch1.bean;
+package com.amayadream.spring.cache.bean;
 
 /**
  * @author :  Amayadream

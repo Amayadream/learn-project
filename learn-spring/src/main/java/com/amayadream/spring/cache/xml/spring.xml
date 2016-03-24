@@ -7,7 +7,7 @@
 
     <cache:annotation-driven/>
 
-    <bean id="userService" class="com.amayadream.spring.ch1.service.UserService"/>
+    <bean id="userService" class="com.amayadream.spring.cache.service.UserService"/>
 
     <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
         <property name="caches">

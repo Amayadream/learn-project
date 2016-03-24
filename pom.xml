@@ -17,7 +17,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jersey.version>2.22.2</jersey.version>
-    <spring.version>4.2.4.RELEASE</spring.version>
+    <spring.version>4.2.5.RELEASE</spring.version>
     <!-- 注意这个mybatis版本不要太高，3.3.0已经验证不支持activiti5.19 -->
     <mybatis.version>3.2.6</mybatis.version>
     <mysql-jdbc.version>5.1.38</mysql-jdbc.version>
@@ -210,6 +210,11 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
       <version>${spring.version}</version>
     </dependency>
     <dependency>

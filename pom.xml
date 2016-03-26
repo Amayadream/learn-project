@@ -13,6 +13,7 @@
     <module>learn-springsession</module>
     <module>learn-activiti</module>
     <module>learn-spring</module>
+    <module>learn-lucene</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

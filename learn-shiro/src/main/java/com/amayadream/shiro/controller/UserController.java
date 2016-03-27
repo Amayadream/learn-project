@@ -1,13 +1,10 @@
 package com.amayadream.shiro.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.amayadream.shiro.pojo.Role;
 import com.amayadream.shiro.pojo.User;
 import com.amayadream.shiro.service.IOrganizationService;
 import com.amayadream.shiro.service.IRoleService;
 import com.amayadream.shiro.service.IUserService;
-import com.amayadream.shiro.serviceImpl.UserServiceImpl;
 import com.amayadream.shiro.utils.SelectEntity;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
@@ -44,6 +41,17 @@ public class UserController {
     }
 
     /**
+     * 获取单个用户信息
+     * @return
+     */
+    @RequiresPermissions("user:view")
+    @RequestMapping(value = "{userid}", method = RequestMethod.GET)
+    public ModelAndView user(){
+        ModelAndView view = new ModelAndView("apps/user/user");
+        return view;
+    }
+
+    /**
      * 跳转到创建用户页面
      * @return
      */
@@ -68,12 +76,12 @@ public class UserController {
     }
 
     /**
-     * 根据用户名查询用户(单个用户,返回JSON)
+     * 跳转到编辑页面
      * @param userid
      * @return
      */
     @RequiresPermissions("user:view")
-    @RequestMapping(value = "{userid}", method = RequestMethod.GET)
+    @RequestMapping(value = "edit/{userid}", method = RequestMethod.GET)
     public String getOne(@PathVariable String userid, Model model){
         User user = userService.selectByUserid(userid);
         model.addAttribute("user", user);
@@ -86,7 +94,7 @@ public class UserController {
      * @return
      */
     @RequiresPermissions("user:update")
-    @RequestMapping(value = "{userid}/update", method = RequestMethod.POST)
+    @RequestMapping(value = "edit/{userid}", method = RequestMethod.POST)
     public String update(@PathVariable String userid, User user, RedirectAttributes attributes){
         String message = userService.update(user) ? "["+user.getUserid()+"]更新成功" : "["+user.getUserid()+"]更新失败";
         attributes.addFlashAttribute("message", message);

@@ -108,7 +108,7 @@
             <ul class="sidebar-menu">
                 <li class="header">Menu</li>
                 <li><a href="${ctx}/user"><i class="fa fa-briefcase"></i><span>资源管理</span></a></li>
-                <li><a href="${ctx}/user"><i class="fa fa-envelope"></i><span>邮件管理</span></a></li>
+                <li><a href="${ctx}/mail"><i class="fa fa-envelope"></i><span>邮件管理</span></a></li>
                 <li class="treeview"><a href="${ctx}/user"><i class="fa fa-briefcase"></i><span>组织机构</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a href="${ctx}/user"><i class="fa fa-diamond"></i>组织管理</a></li>
@@ -132,7 +132,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="compose.html" class="btn btn-primary btn-block margin-bottom">Compose</a>
+                    <a href="${ctx}/mail/write" class="btn btn-primary btn-block margin-bottom">Compose</a>
                     <div class="box box-solid">
                         <div class="box-header with-border">
                             <h3 class="box-title">Folders</h3>
@@ -201,7 +201,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"></td>
                                         <td class="mailbox-date">5 mins ago</td>
@@ -209,7 +209,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                                         <td class="mailbox-date">28 mins ago</td>
@@ -217,7 +217,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                                         <td class="mailbox-date">11 hours ago</td>
@@ -225,7 +225,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"></td>
                                         <td class="mailbox-date">15 hours ago</td>
@@ -233,7 +233,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                                         <td class="mailbox-date">Yesterday</td>
@@ -241,7 +241,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                                         <td class="mailbox-date">2 days ago</td>
@@ -249,7 +249,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                                         <td class="mailbox-date">2 days ago</td>
@@ -257,7 +257,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"></td>
                                         <td class="mailbox-date">2 days ago</td>
@@ -265,7 +265,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"></td>
                                         <td class="mailbox-date">2 days ago</td>
@@ -273,7 +273,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"></td>
                                         <td class="mailbox-date">2 days ago</td>
@@ -281,7 +281,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                                         <td class="mailbox-date">4 days ago</td>
@@ -289,7 +289,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"></td>
                                         <td class="mailbox-date">12 days ago</td>
@@ -297,7 +297,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                                         <td class="mailbox-date">12 days ago</td>
@@ -305,7 +305,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                                         <td class="mailbox-date">14 days ago</td>
@@ -313,7 +313,7 @@
                                     <tr>
                                         <td><input type="checkbox"></td>
                                         <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="${ctx}/mail/read">Alexander Pierce</a></td>
                                         <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                                         <td class="mailbox-date">15 days ago</td>

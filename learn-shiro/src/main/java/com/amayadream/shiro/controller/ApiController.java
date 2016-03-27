@@ -50,7 +50,11 @@ public class ApiController {
         return JSON.toJSONString(map);
     }
 
-
+    /**
+     * 获取单个用户信息
+     * @param userid
+     * @return
+     */
     @RequiresPermissions("user:view")
     @RequestMapping(value = "user/{userid}", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
     @ResponseBody

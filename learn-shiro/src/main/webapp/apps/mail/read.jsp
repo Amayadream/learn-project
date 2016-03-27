@@ -105,7 +105,7 @@
             <ul class="sidebar-menu">
                 <li class="header">Menu</li>
                 <li><a href="${ctx}/user"><i class="fa fa-briefcase"></i><span>资源管理</span></a></li>
-                <li><a href="${ctx}/user"><i class="fa fa-envelope"></i><span>邮件管理</span></a></li>
+                <li><a href="${ctx}/mail"><i class="fa fa-envelope"></i><span>邮件管理</span></a></li>
                 <li class="treeview"><a href="${ctx}/user"><i class="fa fa-briefcase"></i><span>组织机构</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a href="${ctx}/user"><i class="fa fa-diamond"></i>组织管理</a></li>
@@ -129,7 +129,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="compose.html" class="btn btn-primary btn-block margin-bottom">Compose</a>
+                    <a href="${ctx}/mail" class="btn btn-primary btn-block margin-bottom">Compose</a>
                     <div class="box box-solid">
                         <div class="box-header with-border">
                             <h3 class="box-title">Folders</h3>
@@ -139,7 +139,7 @@
                         </div>
                         <div class="box-body no-padding">
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="mailbox.html"><i class="fa fa-inbox"></i> Inbox <span class="label label-primary pull-right">12</span></a></li>
+                                <li><a href="${ctx}/mail"><i class="fa fa-inbox"></i> Inbox <span class="label label-primary pull-right">12</span></a></li>
                                 <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li>
                                 <li><a href="#"><i class="fa fa-file-text-o"></i> Drafts</a></li>
                                 <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a></li>

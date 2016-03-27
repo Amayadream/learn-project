@@ -108,7 +108,7 @@
             <ul class="sidebar-menu">
                 <li class="header">Menu</li>
                 <li><a href="${ctx}/user"><i class="fa fa-briefcase"></i><span>资源管理</span></a></li>
-                <li><a href="${ctx}/user"><i class="fa fa-envelope"></i><span>邮件管理</span></a></li>
+                <li><a href="${ctx}/mail"><i class="fa fa-envelope"></i><span>邮件管理</span></a></li>
                 <li class="treeview"><a href="${ctx}/user"><i class="fa fa-briefcase"></i><span>组织机构</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a href="${ctx}/user"><i class="fa fa-diamond"></i>组织管理</a></li>

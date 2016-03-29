@@ -14,6 +14,7 @@
     <module>learn-activiti</module>
     <module>learn-spring</module>
     <module>learn-lucene</module>
+    <module>learn-java</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

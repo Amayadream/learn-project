@@ -7,9 +7,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>learn-shiro</artifactId>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <name>learn-shiro Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>../learn-freemaker</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <shior.version>1.2.4</shior.version>

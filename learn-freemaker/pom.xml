@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>learn-shiro</artifactId>
+        <groupId>com.amayadream.learn-project</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../learn-shiro/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>learn-freemarker</artifactId>
+    <packaging>war</packaging>
+    <name>learn-freemarker Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.23</version>
+            <scope>system</scope>
+            <systemPath>D:/Code/apache-maven-3.3.3/system/freemarker-2.3.23.jar</systemPath>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>learn-freemarker</finalName>
+    </build>
+</project>

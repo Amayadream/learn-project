@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/learn-activiti/learn-activiti.iml" filepath="$PROJECT_DIR$/learn-activiti/learn-activiti.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn-freemaker/learn-freemaker.iml" filepath="$PROJECT_DIR$/learn-freemaker/learn-freemaker.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-java/learn-java.iml" filepath="$PROJECT_DIR$/learn-java/learn-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-jersey/learn-jersey.iml" filepath="$PROJECT_DIR$/learn-jersey/learn-jersey.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-log4j2/learn-log4j2.iml" filepath="$PROJECT_DIR$/learn-log4j2/learn-log4j2.iml" />

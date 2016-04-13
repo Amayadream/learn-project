@@ -1,7 +1,9 @@
 package com.amayadream.generator.junit;
 
 import com.amayadream.freemarker.datasource.DataSourceContextHolder;
+import com.amayadream.freemarker.model.PhysicalColumn;
 import com.amayadream.freemarker.service.IPhysicalService;
+import com.amayadream.generator.utils.Constants;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.junit.After;
@@ -13,7 +15,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,6 +33,7 @@ public class GeneratorTest {
     private static String path = "";
     Writer out = null;
     private Configuration config = new Configuration();
+    List<PhysicalColumn> columnList = new ArrayList<PhysicalColumn>();
 
     @Resource
     private IPhysicalService physicalService;
@@ -39,9 +44,10 @@ public class GeneratorTest {
         tableName = "SYSLOG";
         beanName = "syslog";
         path = "D:/";
+        DataSourceContextHolder.setDbType(datasource);
         config.setClassForTemplateLoading(getClass(), "../template");
         config.setDefaultEncoding("utf-8");
-        DataSourceContextHolder.setDbType(datasource);
+        columnList = physicalService.showColumns(tableName);
     }
 
     @After
@@ -57,14 +63,33 @@ public class GeneratorTest {
 
     @Test
     public void modelTest(){
+        for (PhysicalColumn item : columnList) {
+            item.setColumnType(getJavaType(item.getColumnType().toLowerCase()));
+        }
         Map<String, Object> root = new HashMap<String, Object>();
-        root.put("xx", "xx");
+        root.put("columnList", columnList);
+        root.put("classPath", Constants.CLASSPATH);
+        root.put("beanName", beanName);
+        root.put("packageModel", Constants.PACKAGE_MODEL);
         try{
-            Template template = config.getTemplate("model.ftl");
-            File file = new File(path);
+            Template template = config.getTemplate(Constants.FTL_MODEL);
+            File file = new File(path + beanName+".java");
             out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(root, out);
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    public String getJavaType(String dbtype) {
+        if (dbtype.equals("varchar") || dbtype.equals("varchar2") || dbtype.equals("nvarchar") || dbtype.equals("clob")) {
+            return "String";
+        } else if (dbtype.equals("integer") || dbtype.equals("number")) {
+            return "Int";
+        } else if (dbtype.equals("date")) {
+            return "Date";
+        } else {
+            return null;
         }
     }
 

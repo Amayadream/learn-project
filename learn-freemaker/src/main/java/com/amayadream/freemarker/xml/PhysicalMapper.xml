@@ -8,8 +8,8 @@
 
     <resultMap id="physicalColumn" type="com.amayadream.freemarker.model.PhysicalColumn">
         <result column="COLUMN_NAME" property="columnName" jdbcType="VARCHAR"/>
-        <result column="COMMENTS" property="columnType" jdbcType="VARCHAR"/>
-        <result column="DATA_TYPE" property="columnComments" jdbcType="VARCHAR"/>
+        <result column="DATA_TYPE" property="columnType" jdbcType="VARCHAR"/>
+        <result column="COMMENTS" property="columnComments" jdbcType="VARCHAR"/>
         <result column="DATA_LENGTH" property="dataLength" jdbcType="VARCHAR"/>
         <result column="DATA_PRECISION" property="dataPrecision" jdbcType="VARCHAR"/>
         <result column="DATA_SCALE" property="dataScale" jdbcType="VARCHAR"/>

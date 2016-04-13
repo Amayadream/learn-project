@@ -16,8 +16,6 @@
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>2.3.23</version>
-            <scope>system</scope>
-            <systemPath>D:/Code/apache-maven-3.3.3/system/freemarker-2.3.23.jar</systemPath>
         </dependency>
     </dependencies>
     <build>

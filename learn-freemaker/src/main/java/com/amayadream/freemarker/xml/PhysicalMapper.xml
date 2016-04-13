@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.amayadream.freemarker.dao.IPhysicalDao">
+    <resultMap id="physicalTable" type="com.amayadream.freemarker.model.PhysicalTable">
+        <result column="TABLE_NAME" property="tableName" jdbcType="VARCHAR"/>
+        <result column="COMMENTS" property="tableComments" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="physicalColumn" type="com.amayadream.freemarker.model.PhysicalColumn">
+        <result column="COLUMN_NAME" property="columnName" jdbcType="VARCHAR"/>
+        <result column="COMMENTS" property="columnType" jdbcType="VARCHAR"/>
+        <result column="DATA_TYPE" property="columnComments" jdbcType="VARCHAR"/>
+        <result column="DATA_LENGTH" property="dataLength" jdbcType="VARCHAR"/>
+        <result column="DATA_PRECISION" property="dataPrecision" jdbcType="VARCHAR"/>
+        <result column="DATA_SCALE" property="dataScale" jdbcType="VARCHAR"/>
+        <result column="NULLABLE" property="nullable" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="physicalPrimary" type="com.amayadream.freemarker.model.PhysicalPrimary">
+        <result column="COLUMN_NAME" property="columnName" jdbcType="VARCHAR"/>
+        <result column="CONSTRAINT_NAME" property="constraintName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="physicalForeign" type="com.amayadream.freemarker.model.PhysicalForeign">
+        <result column="TABLE_COLUMN" property="columnName" jdbcType="VARCHAR"/>
+        <result column="TABLE_NAME" property="mapTable" jdbcType="VARCHAR"/>
+        <result column="COLUMN_NAME" property="mapColumn" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="showTables" resultMap="physicalTable">
+        select c.table_name,nvl(c.comments, c.table_name) AS comments
+        from user_tables t left join user_tab_comments c on c.table_name = t.table_name
+    </select>
+
+    <select id="showColumns" resultMap="physicalColumn" parameterType="string">
+        select t.column_name, nvl(c.comments, t.column_name) as comments, t.data_type, t.data_length, t.data_precision, t.data_scale, nullable
+        from user_tab_columns t left join user_col_comments c on c.table_name = t.table_name and c.column_name = t.column_name
+        where t.table_name = #{tableName}
+    </select>
+
+    <select id="showPrimarys" resultMap="physicalPrimary" parameterType="string">
+        select c.column_name, c.constraint_name from user_constraints t, user_cons_columns c
+        where t.constraint_name = c.constraint_name and t.constraint_type = 'P' and c.table_name = #{tableName}
+    </select>
+
+    <select id="showForeigns" resultMap="physicalForeign" parameterType="string">
+        select distinct(col.column_name) table_column, r.table_name, r.column_name
+        from user_constraints con, user_cons_columns col, (select t2.table_name, t2.column_name, t1.r_constraint_name
+        from user_constraints t1,user_cons_columns t2 where t1.r_constraint_name = t2.constraint_name and t1.table_name = #{tableName}) r
+        where con.constraint_name = col.constraint_name and con.r_constraint_name = r.r_constraint_name and con.table_name = #{tableName}
+    </select>
+
+</mapper>

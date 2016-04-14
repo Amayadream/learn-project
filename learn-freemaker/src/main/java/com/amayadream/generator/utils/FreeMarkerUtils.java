@@ -29,16 +29,15 @@ public class FreeMarkerUtils {
 
     /**
      *
-     * @param ftl   模板文件名称
-     * @param path  模板文件夹路径
-     * @param root  参数
+     * @param config    freemarker配置
+     * @param ftl       模板文件名称
+     * @param root      参数
      * @param targetFile    要生成的文件
      * @return
      */
-    public static boolean createFile(String ftl, String path, Map<String, Object> root, String targetFile) {
+    public static boolean createFile(Configuration config, String ftl, Map<String, Object> root, String targetFile) {
         try {
-            Configuration cfg = FreeMarkerUtils.getInstance(path);
-            Template template = cfg.getTemplate(ftl);
+            Template template = config.getTemplate(ftl);
             Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(targetFile), "UTF-8"));
             template.process(root, out);
             out.flush();

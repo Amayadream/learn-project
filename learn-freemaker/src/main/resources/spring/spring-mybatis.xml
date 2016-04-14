@@ -33,6 +33,7 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
+
     <import resource ="classpath:spring/datasource.xml"/>
 
 </beans>

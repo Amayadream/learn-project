@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.amayadream.test.dao.BMapper" >
+  <resultMap id="BaseResultMap" type="com.amayadream.test.model.B" >
+    <id column="BID" property="bid" jdbcType="VARCHAR" />
+    <result column="BNAME" property="bname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    `BID`, `BNAME`
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from B
+    where `BID` = #{bid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from B
+    where `BID` = #{bid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.amayadream.test.model.B" >
+    insert into B (`BID`, `BNAME`)
+    values (#{bid,jdbcType=VARCHAR}, #{bname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.amayadream.test.model.B" >
+    insert into B
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        `BID`,
+      </if>
+      <if test="bname != null" >
+        `BNAME`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        #{bid,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null" >
+        #{bname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.amayadream.test.model.B" >
+    update B
+    <set >
+      <if test="bname != null" >
+        `BNAME` = #{bname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where `BID` = #{bid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.amayadream.test.model.B" >
+    update B
+    set `BNAME` = #{bname,jdbcType=VARCHAR}
+    where `BID` = #{bid,jdbcType=VARCHAR}
+  </update>
+</mapper>

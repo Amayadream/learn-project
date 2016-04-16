@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.amayadream.test.dao.AMapper" >
+  <resultMap id="BaseResultMap" type="com.amayadream.test.model.A" >
+    <id column="AID" property="aid" jdbcType="VARCHAR" />
+    <result column="BID" property="bid" jdbcType="VARCHAR" />
+    <result column="CID" property="cid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    `AID`, `BID`, `CID`
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from A
+    where `AID` = #{aid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from A
+    where `AID` = #{aid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.amayadream.test.model.A" >
+    insert into A (`AID`, `BID`, `CID`
+      )
+    values (#{aid,jdbcType=VARCHAR}, #{bid,jdbcType=VARCHAR}, #{cid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.amayadream.test.model.A" >
+    insert into A
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        `AID`,
+      </if>
+      <if test="bid != null" >
+        `BID`,
+      </if>
+      <if test="cid != null" >
+        `CID`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        #{aid,jdbcType=VARCHAR},
+      </if>
+      <if test="bid != null" >
+        #{bid,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null" >
+        #{cid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.amayadream.test.model.A" >
+    update A
+    <set >
+      <if test="bid != null" >
+        `BID` = #{bid,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null" >
+        `CID` = #{cid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where `AID` = #{aid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.amayadream.test.model.A" >
+    update A
+    set `BID` = #{bid,jdbcType=VARCHAR},
+      `CID` = #{cid,jdbcType=VARCHAR}
+    where `AID` = #{aid,jdbcType=VARCHAR}
+  </update>
+</mapper>

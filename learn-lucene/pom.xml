@@ -14,6 +14,11 @@
         <lucene.version>5.5.0</lucene.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
         <!-- lucene start -->
         <dependency>
             <groupId>org.apache.lucene</groupId>
@@ -40,8 +45,6 @@
             <artifactId>lucene-highlighter</artifactId>
             <version>${lucene.version}</version>
         </dependency>
-
-
         <!-- lucene end -->
     </dependencies>
     <build>

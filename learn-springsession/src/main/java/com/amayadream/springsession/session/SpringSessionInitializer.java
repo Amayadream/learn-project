@@ -1,7 +1,5 @@
 package com.amayadream.springsession.session;
 
-import org.springframework.session.web.context.AbstractHttpSessionApplicationInitializer;
-
 /**
  * 向Servlet容器中添加springSessionRepositoryFilter
  * @author :  Amayadream

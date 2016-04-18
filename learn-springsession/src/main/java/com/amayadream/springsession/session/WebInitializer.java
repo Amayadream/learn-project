@@ -1,7 +1,5 @@
 package com.amayadream.springsession.session;
 
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
 /**
  * @author :  Amayadream
  * @date :  2016.03.15 19:59

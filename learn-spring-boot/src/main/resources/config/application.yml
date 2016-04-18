@@ -1,10 +1,12 @@
 spring:
   datasource:
+    name: webchat
     url: jdbc:oracle:thin:@localhost:1521:XE
+    driver-class-name: oracle.jdbc.driver.OracleDriver
     username: webchat
     password: webchat
-    driver-class-name: oracle.jdbc.driver.OracleDriver
-    name: defaultDataSource
+    type: com.zaxxer.hikari.HikariDataSource
+
   mvc:
     locale: zh_CN
     date-format: yyyy-MM-dd HH:mm:ss
@@ -26,7 +28,7 @@ server:
 #使用log4j2替代默认的logback,1.在pom.xml的spring-boot-start中排除logback;2.在application.yml中配置log4j2.xml
 logging:
   config: classpath:config/log4j2.xml
-  level: info
 
-
-
+mybatis:
+  mapper-locations: classpath*:com/amayadream/springboot/xml/*Mapper.xml
+  type-aliases-package: com.amayadream.springboot.model

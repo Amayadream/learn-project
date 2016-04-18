@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 引入配置文件 -->
+    <!--<properties resource="init.properties"/>-->
+
+    <!-- 驱动路径 -->
+    <classPathEntry location="D:/Code/apache-maven-3.3.3/system/ojdbc6-10.2.0.jar"/>
+
+    <!-- Context -->
+    <context id="context" targetRuntime="MyBatis3">
+
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value=""/>
+        <property name="endingDelimiter" value=""/>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/> <!-- 是否去掉自动生成的注释,true:去除,false:保留 -->
+            <property name="suppressDate" value="true"/>    <!-- 是否生成注释代时间戳-->
+        </commentGenerator>
+
+        <!--JDBC连接配置 -->
+        <jdbcConnection driverClass="oracle.jdbc.OracleDriver" connectionURL="jdbc:oracle:thin:@//localhost/XE" userId="springboot" password="springboot"/>
+
+        <!-- 类型转换 -->
+        <javaTypeResolver>
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 生成模型配置 -->
+        <javaModelGenerator targetPackage="com.amayadream.springboot.model" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+            <!-- 是否在当前路径下新加一层schema,eg：false:com.amayadream.springboot.model， true:com.amayadream.springboot.model.[schemaName] -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成映射文件配置 -->
+        <sqlMapGenerator targetPackage="com.amayadream.springboot.xml" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+            <!-- 同理,是否补足一层目录 -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- 生成持久层接口配置 -->
+        <javaClientGenerator targetPackage="com.amayadream.springboot.dao" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED" type="XMLMAPPER">
+            <!-- 同理,是否补足一层目录 -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 数据库表配置 -->
+        <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample 是否生成 example类   -->
+        <table tableName="tab_a" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <!-- 忽略列，不生成bean 字段 -->
+            <!--<ignoreColumn column="FRED" />-->
+            <!-- 指定列的java数据类型 -->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+        </table>
+    </context>
+</generatorConfiguration>

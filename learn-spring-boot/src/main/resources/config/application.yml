@@ -3,8 +3,8 @@ spring:
     name: webchat
     url: jdbc:oracle:thin:@localhost:1521:XE
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    username: webchat
-    password: webchat
+    username: springboot
+    password: springboot
     type: com.zaxxer.hikari.HikariDataSource
 
   mvc:

@@ -11,32 +11,28 @@
     <name>learn-spring-boot Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>1.3.3.RELEASE</spring-boot.version>
+        <log4j.version>2.5</log4j.version>
+        <slf4j.version>1.7.21</slf4j.version>
     </properties>
 
     <dependencies>
-        <!-- guava start -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>19.0</version>
         </dependency>
-        <!-- guava end -->
-
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>10.2.0</version>
         </dependency>
-
-        <!-- druid start -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.0.18</version>
         </dependency>
-        <!-- druid end -->
-
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
@@ -44,7 +40,6 @@
             <scope>system</scope>
             <systemPath>D:/Code/apache-maven-3.3.3/system/HikariCP-2.4.5.jar</systemPath>
         </dependency>
-
         <!-- Spring-boot start -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -82,7 +77,6 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>1.0.2</version>
         </dependency>
-
     </dependencies>
     <build>
         <finalName>learn-spring-boot</finalName>

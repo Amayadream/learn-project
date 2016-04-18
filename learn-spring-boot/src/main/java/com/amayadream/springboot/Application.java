@@ -15,6 +15,7 @@ import javax.servlet.Filter;
  * @date :  2016.04.17 21:58
  */
 @SpringBootApplication
+@MapperScan(basePackages = "com.amayadream.springboot.dao")
 public class Application {
 
     // 用于处理编码问题

@@ -15,6 +15,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/learn-activiti/pom.xml" />
+        <option value="$PROJECT_DIR$/learn-spring-boot/pom.xml" />
       </set>
     </option>
   </component>

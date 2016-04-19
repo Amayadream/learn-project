@@ -29,7 +29,7 @@
         <module name="learn-lucene" />
         <module name="learn-openlayers3" />
         <module name="learn-spring" />
-        <module name="learn-spring-boot" />
+        <module name="learn-springboot" />
         <module name="learn-springsession" />
       </profile>
     </annotationProcessing>
@@ -44,6 +44,7 @@
       <module name="learn-shiro" target="1.8" />
       <module name="learn-spring" target="1.8" />
       <module name="learn-spring-boot" target="1.8" />
+      <module name="learn-springboot" target="1.8" />
       <module name="learn-springsession" target="1.8" />
     </bytecodeTargetLevel>
   </component>

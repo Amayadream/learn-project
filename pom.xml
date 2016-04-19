@@ -15,7 +15,7 @@
     <module>learn-lucene</module>
     <module>learn-java</module>
     <module>learn-log4j2</module>
-    <module>learn-spring-boot</module>
+    <module>learn-springboot</module>
   </modules>
   <!--<properties>-->
     <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->

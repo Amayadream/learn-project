@@ -10,6 +10,10 @@ spring:
   mvc:
     locale: zh_CN
     date-format: yyyy-MM-dd HH:mm:ss
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
   resources:
     add-mappings: true
   http:
@@ -20,15 +24,19 @@ spring:
 
 server:
   port: 9090
-  address: 127.0.0.1
-  context-path: /
-  session:
-    timeout: 20
+#  address: 127.0.0.1
+#  context-path: /
+#  session:
+#    timeout: 20
 
 #使用log4j2替代默认的logback,1.在pom.xml的spring-boot-start中排除logback;2.在application.yml中配置log4j2.xml
 logging:
   config: classpath:config/log4j2.xml
 
+#mybatis配置
 mybatis:
   mapper-locations: classpath*:com/amayadream/springboot/xml/*Mapper.xml
   type-aliases-package: com.amayadream.springboot.model
+
+hello:
+  name: Amayadream

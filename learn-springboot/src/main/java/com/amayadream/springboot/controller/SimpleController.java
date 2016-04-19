@@ -19,8 +19,6 @@ import java.util.Map;
 @Controller
 public class SimpleController {
 
-    private static final String PATH = "/error";
-
     @Resource
     private TabAMapper aDao;
 
@@ -41,9 +39,7 @@ public class SimpleController {
     }
 
     @RequestMapping("/")
-    public String welcome(Map<String, Object> model) {
-        model.put("time", new Date());
-        model.put("message", this.message);
+    public String welcome() {
         return "welcome";
     }
 

@@ -40,4 +40,8 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/photos/**").addResourceLocations("classpath:/photo/", "classpath:/static/");
         super.addResourceHandlers(registry);
     }
+
+
+
+
 }

@@ -3,6 +3,7 @@ package com.amayadream.freemarker.datasource;
 import java.util.logging.Logger;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
+import org.springframework.jdbc.datasource.lookup.DataSourceLookup;
 
 /**
  * @author :  Amayadream
@@ -18,5 +19,10 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
     @Override
     protected Object determineCurrentLookupKey() {
         return DataSourceContextHolder.getDbType();
+    }
+
+    @Override
+    public void setDataSourceLookup(DataSourceLookup dataSourceLookup) {
+        super.setDataSourceLookup(dataSourceLookup);
     }
 }

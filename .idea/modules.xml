@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/learn-activeMQ/learn-activeMQ.iml" filepath="$PROJECT_DIR$/learn-activeMQ/learn-activeMQ.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-freemaker/learn-freemaker.iml" filepath="$PROJECT_DIR$/learn-freemaker/learn-freemaker.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-java/learn-java.iml" filepath="$PROJECT_DIR$/learn-java/learn-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-jersey/learn-jersey.iml" filepath="$PROJECT_DIR$/learn-jersey/learn-jersey.iml" />

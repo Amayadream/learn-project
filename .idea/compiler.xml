@@ -22,6 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="learn-activeMQ" />
         <module name="learn-freemaker" />
         <module name="learn-java" />
         <module name="learn-jersey" />
@@ -33,6 +34,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="learn-activeMQ" target="1.8" />
       <module name="learn-freemaker" target="1.8" />
       <module name="learn-java" target="1.8" />
       <module name="learn-jersey" target="1.8" />

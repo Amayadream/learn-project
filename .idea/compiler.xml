@@ -28,6 +28,7 @@
         <module name="learn-jersey" />
         <module name="learn-log4j2" />
         <module name="learn-lucene" />
+        <module name="learn-netty-socketio" />
         <module name="learn-spring" />
         <module name="learn-springboot" />
         <module name="learn-springsession" />
@@ -40,6 +41,7 @@
       <module name="learn-jersey" target="1.8" />
       <module name="learn-log4j2" target="1.8" />
       <module name="learn-lucene" target="1.8" />
+      <module name="learn-netty-socketio" target="1.8" />
       <module name="learn-project" target="1.8" />
       <module name="learn-shiro" target="1.8" />
       <module name="learn-spring" target="1.8" />

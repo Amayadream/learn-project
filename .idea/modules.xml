@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/learn-jersey/learn-jersey.iml" filepath="$PROJECT_DIR$/learn-jersey/learn-jersey.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-log4j2/learn-log4j2.iml" filepath="$PROJECT_DIR$/learn-log4j2/learn-log4j2.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-lucene/learn-lucene.iml" filepath="$PROJECT_DIR$/learn-lucene/learn-lucene.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn-netty-socketio/learn-netty-socketio.iml" filepath="$PROJECT_DIR$/learn-netty-socketio/learn-netty-socketio.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-project.iml" filepath="$PROJECT_DIR$/learn-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-shiro/learn-shiro.iml" filepath="$PROJECT_DIR$/learn-shiro/learn-shiro.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-spring/learn-spring.iml" filepath="$PROJECT_DIR$/learn-spring/learn-spring.iml" />

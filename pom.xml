@@ -17,6 +17,7 @@
     <module>learn-log4j2</module>
     <module>learn-springboot</module>
     <module>learn-activeMQ</module>
+    <module>learn-netty-socketio</module>
   </modules>
   <!--<properties>-->
     <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->

@@ -23,12 +23,14 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="learn-activeMQ" />
-        <module name="learn-freemaker" />
+        <module name="learn-comet4j" />
+        <module name="learn-freemarker" />
         <module name="learn-java" />
         <module name="learn-jersey" />
         <module name="learn-log4j2" />
         <module name="learn-lucene" />
         <module name="learn-netty-socketio" />
+        <module name="learn-shiro" />
         <module name="learn-spring" />
         <module name="learn-springboot" />
         <module name="learn-springsession" />
@@ -36,14 +38,16 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="learn-activeMQ" target="1.8" />
+      <module name="learn-comet4j" target="1.8" />
       <module name="learn-freemaker" target="1.8" />
+      <module name="learn-freemarker" target="1.5" />
       <module name="learn-java" target="1.8" />
       <module name="learn-jersey" target="1.8" />
       <module name="learn-log4j2" target="1.8" />
       <module name="learn-lucene" target="1.8" />
       <module name="learn-netty-socketio" target="1.8" />
       <module name="learn-project" target="1.8" />
-      <module name="learn-shiro" target="1.8" />
+      <module name="learn-shiro" target="1.5" />
       <module name="learn-spring" target="1.8" />
       <module name="learn-spring-boot" target="1.8" />
       <module name="learn-springboot" target="1.8" />

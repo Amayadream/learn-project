@@ -1,5 +1,7 @@
 package com.amayadream.nettysocketio.bean;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 
 /**
@@ -10,10 +12,6 @@ public class MessageObject implements Serializable {
 
     private String username;
     private String message;
-
-    public MessageObject() {
-
-    }
 
     public MessageObject(String username, String message) {
         this.username = username;

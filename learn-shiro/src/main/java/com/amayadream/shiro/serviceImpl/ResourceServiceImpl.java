@@ -77,7 +77,8 @@ public class ResourceServiceImpl implements IResourceService {
 
     @Override
     public Resource createResource(Resource resource) {
-        return null;
+        mongoTemplate.insert(resource);
+        return mongoTemplate.findById(resource.getResourceId(), Resource.class);
     }
 
     @Override

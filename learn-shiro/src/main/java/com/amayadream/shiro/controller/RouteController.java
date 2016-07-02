@@ -5,15 +5,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author :  Amayadream
- * @date :  2016.06.29 22:07
+ * @date :  2016.07.02 16:38
  */
 @Controller
-public class SimpleController {
+public class RouteController {
 
     @RequestMapping(value = "index")
     public String index(){
         return "view/index";
     }
-
 
 }

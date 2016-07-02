@@ -3,6 +3,7 @@ package com.amayadream.shiro.serviceImpl;
 import com.amayadream.shiro.model.User;
 import com.amayadream.shiro.service.IRoleService;
 import com.amayadream.shiro.service.IUserService;
+import com.amayadream.shiro.utils.PasswordHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,8 @@ public class UserServiceImpl implements IUserService {
     private IRoleService roleService;
     @Autowired
     private MongoTemplate mongoTemplate;
+    @Autowired
+    private PasswordHelper passwordHelper;
 
     @Override
     public List<User> findAll() {
@@ -53,6 +56,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User createUser(User user) {
+        passwordHelper.encryptPassword(user);
         mongoTemplate.insert(user);
         return mongoTemplate.findById(user.getUserId(), User.class);
     }

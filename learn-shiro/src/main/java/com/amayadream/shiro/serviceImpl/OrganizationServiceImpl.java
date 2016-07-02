@@ -40,7 +40,8 @@ public class OrganizationServiceImpl implements IOrganizationService {
 
     @Override
     public Organization createOrganization(Organization organization) {
-        return null;
+        mongoTemplate.insert(organization);
+        return mongoTemplate.findById(organization.getOrganId(), Organization.class);
     }
 
     @Override

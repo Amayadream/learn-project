@@ -1,51 +1,74 @@
 package com.amayadream.shiro.serviceImpl;
 
 import com.amayadream.shiro.model.User;
+import com.amayadream.shiro.service.IRoleService;
 import com.amayadream.shiro.service.IUserService;
-import com.mongodb.WriteResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author :  Amayadream
- * @date :  2016.07.01 21:28
+ * @date :  2016.07.02 11:51
  */
 @Service(value = "userService")
 public class UserServiceImpl implements IUserService {
 
-    @Autowired private MongoTemplate template;
+    @Autowired
+    private IRoleService roleService;
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     @Override
-    public List<User> list() {
-        return template.findAll(User.class);
+    public List<User> findAll() {
+        return mongoTemplate.findAll(User.class);
     }
 
     @Override
-    public User selectByUserId(String userId) {
-        return template.findById(userId, User.class);
+    public User findByUserId(String userId) {
+        return mongoTemplate.findById(userId, User.class);
     }
 
     @Override
-    public int insertUser(User user) {
-        try {
-            template.insert(user);
-            return 1;
-        } catch (Exception e){
-            return -1;
+    public Set<String> findRoles(String userId) {
+        User user = findByUserId(userId);
+        if (user == null) {
+            return Collections.EMPTY_SET;
         }
+        return roleService.findRoles(user.getRoleIds().toArray(new String[0]));
     }
 
     @Override
-    public int updateUser(User user) {
+    public Set<String> findPermission(String userId) {
+        User user = findByUserId(userId);
+        if (user == null) {
+            return Collections.EMPTY_SET;
+        }
+        return roleService.findPermissions(user.getRoleIds().toArray(new String[0]));
+    }
+
+    @Override
+    public User createUser(User user) {
+        mongoTemplate.insert(user);
+        return mongoTemplate.findById(user.getUserId(), User.class);
+    }
+
+    @Override
+    public User updateUser(User user) {
+        return null;
+    }
+
+    @Override
+    public int deleteUser(String userId) {
         return 0;
     }
 
     @Override
-    public int deleteUser(User user) {
-        WriteResult result = template.remove(user);
-        return Integer.parseInt(result.toString());
+    public int changePassword(String userId, String password) {
+        return 0;
     }
 }

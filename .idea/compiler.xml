@@ -40,14 +40,14 @@
       <module name="learn-activeMQ" target="1.8" />
       <module name="learn-comet4j" target="1.8" />
       <module name="learn-freemaker" target="1.8" />
-      <module name="learn-freemarker" target="1.5" />
+      <module name="learn-freemarker" target="1.8" />
       <module name="learn-java" target="1.8" />
       <module name="learn-jersey" target="1.8" />
       <module name="learn-log4j2" target="1.8" />
       <module name="learn-lucene" target="1.8" />
       <module name="learn-netty-socketio" target="1.8" />
       <module name="learn-project" target="1.8" />
-      <module name="learn-shiro" target="1.5" />
+      <module name="learn-shiro" target="1.8" />
       <module name="learn-spring" target="1.8" />
       <module name="learn-spring-boot" target="1.8" />
       <module name="learn-springboot" target="1.8" />

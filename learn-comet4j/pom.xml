@@ -23,7 +23,7 @@
             <artifactId>comet4j</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>D:/Code/apache-maven-3.3.3/stone/org/comet4j/comet4j/comet4j-tomcat7.jar</systemPath>
+            <systemPath>D:/Code/apache-maven-3.3.9/store/org/comet4j/comet4j/comet4j-tomcat7.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -211,6 +211,14 @@
     </dependencies>
     <build>
         <finalName>learn-comet4j</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

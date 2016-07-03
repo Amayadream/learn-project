@@ -6,9 +6,11 @@
 <head>
     <meta charset="utf-8">
     <title>Login Page</title>
-    <style>.error {
-        color: red;
-    }</style>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <h1>login page</h1>

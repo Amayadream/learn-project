@@ -59,12 +59,6 @@ public class LoginRealm extends AuthorizingRealm {
             getName()   //realm name
         );
         return authenticationInfo;
-//        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-//        User user = userService.findByUserId(token.getUsername());
-//        if(user != null){
-//            return new SimpleAuthenticationInfo(user.getUserId(), user.getPassword(), getName());
-//        }
-//        return null;
     }
 
 }

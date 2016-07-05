@@ -29,6 +29,7 @@
                 write-timeout="0"
                 write-fsync="true"/>
     </mongo:mongo>
+
     <mongo:db-factory dbname="database" mongo-ref="mongo" />
 
     <!-- mongoTemplate -->

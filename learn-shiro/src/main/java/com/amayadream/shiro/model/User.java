@@ -41,9 +41,10 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String userId, String password) {
+    public User(String userId, String password, int state) {
         this.userId = userId;
         this.password = password;
+        this.state = state;
     }
 
     public String getRoleIdsStr(){

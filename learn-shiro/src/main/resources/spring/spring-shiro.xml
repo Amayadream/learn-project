@@ -113,6 +113,7 @@
             <value>
                 /auth/login = authc
                 /auth/logout = logout
+                /favicon.ico = anon
                 /error = anon
                 /** = user
             </value>

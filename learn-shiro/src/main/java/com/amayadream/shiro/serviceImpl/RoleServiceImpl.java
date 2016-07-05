@@ -3,9 +3,14 @@ package com.amayadream.shiro.serviceImpl;
 import com.amayadream.shiro.model.Role;
 import com.amayadream.shiro.service.IResourceService;
 import com.amayadream.shiro.service.IRoleService;
+import com.mongodb.WriteResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.HashSet;
 import java.util.List;
@@ -65,11 +70,23 @@ public class RoleServiceImpl implements IRoleService {
 
     @Override
     public Role updateRole(Role role) {
-        return null;
+        Update update = new Update();
+        if(!StringUtils.isEmpty(role.getRoleName()))
+            update.set("roleName", role.getRoleName());
+        if(!StringUtils.isEmpty(role.getResourceIds()))
+            update.set("resourceIds", role.getResourceIds());
+        if(!StringUtils.isEmpty(role.getState()))
+            update.inc("state", role.getState());
+        WriteResult result = mongoTemplate.updateFirst(
+                new Query(Criteria.where("userId").is(role.getRoleId())),
+                update,
+                Role.class);
+        return mongoTemplate.findById(role.getRoleId(), Role.class);
     }
 
     @Override
     public int deleteRole(String roleId) {
-        return 0;
+        WriteResult result = mongoTemplate.remove(Query.query(Criteria.where("roleId").is(roleId)));
+        return result.getN();
     }
 }

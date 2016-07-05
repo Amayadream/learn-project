@@ -2,9 +2,14 @@ package com.amayadream.shiro.serviceImpl;
 
 import com.amayadream.shiro.model.Organization;
 import com.amayadream.shiro.service.IOrganizationService;
+import com.mongodb.WriteResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -46,11 +51,26 @@ public class OrganizationServiceImpl implements IOrganizationService {
 
     @Override
     public Organization updateOrganization(Organization organization) {
-        return null;
+        Update update = new Update();
+        if(!StringUtils.isEmpty(organization.getOrganName()))
+            update.set("organName", organization.getOrganName());
+        if(!StringUtils.isEmpty(organization.getParentId()))
+            update.set("parentId", organization.getParentId());
+        if(!StringUtils.isEmpty(organization.getParentIds()))
+            update.set("parentIds", organization.getParentIds());
+        if(!StringUtils.isEmpty(organization.getState()))
+            update.inc("state", organization.getState());
+        WriteResult result = mongoTemplate.updateFirst(
+                new Query(Criteria.where("organId").is(organization.getOrganId())),
+                update,
+                Organization.class
+        );
+        return mongoTemplate.findById(organization.getOrganId(), Organization.class);
     }
 
     @Override
     public int deleteOrganization(String organId) {
-        return 0;
+        WriteResult result = mongoTemplate.remove(Query.query(Criteria.where("organId").is(organId)));
+        return result.getN();
     }
 }

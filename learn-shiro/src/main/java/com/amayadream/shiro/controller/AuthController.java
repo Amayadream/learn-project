@@ -3,6 +3,7 @@ package com.amayadream.shiro.controller;
 import com.amayadream.shiro.model.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
@@ -38,10 +39,12 @@ public class AuthController {
         String exceptionClassName = (String)request.getAttribute("shiroLoginFailure");
         String message = null;
         if(UnknownAccountException.class.getName().equals(exceptionClassName)) {
-            message = "用户名/密码错误";
+            message = "账号不存在!";
         } else if(IncorrectCredentialsException.class.getName().equals(exceptionClassName)) {
-            message = "用户名/密码错误";
-        } else if(exceptionClassName != null) {
+            message = "密码不正确!";
+        } else if (LockedAccountException.class.getName().equals(exceptionClassName)) {
+            message = "账户被锁定!";
+        } else if (exceptionClassName != null) {
             message = "其他错误：" + exceptionClassName;
         }
         attributes.addFlashAttribute("message", message);

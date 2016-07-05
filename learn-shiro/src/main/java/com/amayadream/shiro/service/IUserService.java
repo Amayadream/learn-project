@@ -1,6 +1,8 @@
 package com.amayadream.shiro.service;
 
 import com.amayadream.shiro.model.User;
+import com.amayadream.shiro.utils.Pagination;
+import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
 import java.util.Set;
@@ -16,7 +18,16 @@ public interface IUserService {
      * 查询全部用户
      * @return
      */
-    List<User> findAll();
+    List<User> findAll(Query query);
+
+    /**
+     * 分页查询
+     * @param pageNo
+     * @param pageSize
+     * @param query
+     * @return
+     */
+    Pagination<User> findByPage(int pageNo, int pageSize, Query query);
 
     /**
      * 根据用户名查询指定用户

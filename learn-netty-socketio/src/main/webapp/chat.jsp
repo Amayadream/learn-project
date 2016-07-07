@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Socketio chat</title>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" type="text/javascript"></script>
+    <script src="${ctx}/static/js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="${ctx}/static/js/socket.io.js"></script>
     <style>
         body {

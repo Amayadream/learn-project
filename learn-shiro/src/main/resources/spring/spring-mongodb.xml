@@ -32,6 +32,13 @@
 
     <mongo:db-factory dbname="database" mongo-ref="mongo" />
 
+    <mongo:mapping-converter id="mongoConverter" />
+
+    <bean id="gridFsTemplate" class="org.springframework.data.mongodb.gridfs.GridFsTemplate">
+        <constructor-arg ref="mongoDbFactory" />
+        <constructor-arg ref="mongoConverter" />
+    </bean>
+
     <!-- mongoTemplate -->
     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
         <constructor-arg ref="mongo" />

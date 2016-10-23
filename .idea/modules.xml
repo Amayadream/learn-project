@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/learn-spring/learn-spring.iml" filepath="$PROJECT_DIR$/learn-spring/learn-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-springboot/learn-springboot.iml" filepath="$PROJECT_DIR$/learn-springboot/learn-springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn-springsession/learn-springsession.iml" filepath="$PROJECT_DIR$/learn-springsession/learn-springsession.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn-thrift/learn-thrift.iml" filepath="$PROJECT_DIR$/learn-thrift/learn-thrift.iml" />
     </modules>
   </component>
 </project>

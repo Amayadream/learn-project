@@ -34,6 +34,7 @@
         <module name="learn-spring" />
         <module name="learn-springboot" />
         <module name="learn-springsession" />
+        <module name="learn-thrift" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -53,6 +54,8 @@
       <module name="learn-spring-boot" target="1.8" />
       <module name="learn-springboot" target="1.8" />
       <module name="learn-springsession" target="1.8" />
+      <module name="learn-thrift" target="1.8" />
+      <module name="untitled" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

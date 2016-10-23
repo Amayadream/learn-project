@@ -20,6 +20,7 @@
     <module>learn-netty-socketio</module>
     <module>learn-shiro</module>
     <module>learn-comet4j</module>
+    <module>learn-thrift</module>
   </modules>
   <dependencies>
 

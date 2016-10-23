@@ -12,7 +12,7 @@
     </sql>
 
     <!-- 查询所有用户 -->
-    <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap" statementType="STATEMENT">
         SELECT * FROM USERS
     </select>
 
